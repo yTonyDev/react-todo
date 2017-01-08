@@ -5,25 +5,8 @@ var moment =require('moment');
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
 import TodoSearch from 'TodoSearch';
-var TodoAPI = require('TodoAPI');
 
 var TodoApp = React.createClass({
-    getInitialState: function(){
-        return {
-            showCompleted: false,
-            searchText: '',
-            todos: TodoAPI.getTodos()
-        };
-    },
-    componentDidUpdate: function(){
-        TodoAPI.setTodos(this.state.todos);
-    },
-    handleSearch: function(showCompleted, searchText){
-        this.setState({
-            showCompleted: showCompleted,
-            searchText: searchText.toLowerCase()
-        });
-    },
     render: function(){
         return (
             <div>
