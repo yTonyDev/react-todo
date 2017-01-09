@@ -9,7 +9,7 @@ export var AddTodo = React.createClass({
         var newTodo = this.refs.newTodo.value;
         if(newTodo.length > 0){
             this.refs.newTodo.value = "";
-            dispatch(actions.addTodo(newTodo));
+            dispatch(actions.startAddTodo(newTodo));
         } else {
             this.refs.newTodo.focus();
         }
