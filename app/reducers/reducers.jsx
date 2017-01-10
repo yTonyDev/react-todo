@@ -31,16 +31,12 @@ export var todosReducer = (state = [], action) => {
                 ...state,
                 ...action.todos
             ];
-        case 'TOGGLE_TODO':
+        case 'UPDATE_TODO':
             return state.map((todo)=>{
                 if(action.id === todo.id){
-                    var nextCompleted = !todo.completed;
-                    var nextCompletedAt = nextCompleted ? moment().unix() : undefined;
-
                     return {
                         ...todo,
-                        completed: nextCompleted,
-                        completedAt: nextCompletedAt
+                        ...action.updates
                     };
                 }
                 return todo;
