@@ -140,4 +140,25 @@ describe('Actions', () => {
         });
 
     });
+
+    describe('Auth action', ()=>{
+        it('should grab uid and dispatch LOGIN action', () => {
+            const uid = 'skjdfhsjdk2342';
+            const action = {
+                type: 'LOGIN',
+                uid
+            };
+
+            const res = actions.login(action.uid);
+            expect(res).toEqual(action)
+        });
+
+        it('should remove uid and dispatch LOGOUT action', () => {
+            const action = {
+                type: 'LOGOUT'
+            };
+            const res = actions.logout();
+            expect(res).toEqual(action);
+        });
+    });
 }); 

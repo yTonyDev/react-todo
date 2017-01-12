@@ -87,4 +87,27 @@ describe('Reducers', () => {
             expect(res[0]).toEqual(todos[0]);
         });
     });
+
+    describe('authReducers', ()=>{
+        it('should add uid', ()=>{
+            var action = {
+                type: 'LOGIN',
+                uid: 'jskf2342'
+            };
+            var res = reducers.authReducer(undefined, df(action));
+            expect(res).toEqual({
+                uid: action.uid
+            });
+        });
+        it('should remove uid', ()=>{
+            const authData = {
+                uid: '123asc'
+            };
+            var action = {
+                type: 'LOGOUT'
+            };
+            var res = reducers.authReducer(df(authData), df(action));
+            expect(res).toEqual({});
+        });
+    });
 });
